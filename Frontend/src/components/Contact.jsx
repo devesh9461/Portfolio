@@ -14,7 +14,7 @@ const Contact = () => {
   const templates = {
     hr: {
       subject: "Opportunity: Python Developer / Junior Role",
-      message: "Hi Devesh, I am reaching out from [Company Name] because we are impressed with your portfolio. We'd love to discuss a potential role in our team."
+      message: "Hi Devesh, I am reaching out from [Company Name] because we are impressed with your Knowledge. We'd love to discuss a potential role in our team."
     },
     collab: {
       subject: "Project Collaboration Proposal",
@@ -39,9 +39,9 @@ const Contact = () => {
             <span className="pulse-dot-orange"></span>
             <span className="text-sm tracking-widest uppercase">System Status: Accepting Requests</span>
           </div>
-          <h2 className="section-title text-4xl mt-4">Initiate <span className="text-gradient">Collaboration</span></h2>
+          <h2 className="section-title text-4xl mt-4">Contact<span className="text-gradient">Now</span></h2>
           <p className="section-subtitle max-w-xl">
-            My neural network is currently at 85% capacity. I am available for high-impact internship opportunities and visionary project collaborations.
+            I am available for high-impact internship opportunities and visionary project collaborations.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ const Contact = () => {
             <div className="templates-card glass-card">
               <div className="card-icon-header">
                 <Sparkles className="text-saffron" size={20} />
-                <h3 className="text-lg font-bold">AI Quick-Fill</h3>
+                <h3 className="text-lg font-bold">Quick-Fill</h3>
               </div>
               <p className="text-sm text-secondary mt-2">Select your profile for a pre-optimized template.</p>
               <div className="template-btns mt-6 flex-col gap-3">
@@ -116,7 +116,7 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="submit-btn-glow flex items-center justify-center gap-3">
-                <Zap size={18} /> INITIATE HANDSHAKE
+                {/*<Zap size={18}/>*/}  Click to Submit
               </button>
             </form>
           </div>

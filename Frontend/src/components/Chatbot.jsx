@@ -87,16 +87,24 @@ const Chatbot = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Python Backend</td>
+                    <td>COMPUTER PROGRAMMING</td>
                     <td>A+</td>
                   </tr>
                   <tr>
-                    <td>Data Structures</td>
-                    <td>A</td>
+                    <td>SCRIPTING LANGUAGE (PYTHON)</td>
+                    <td>A+</td>
                   </tr>
                   <tr>
-                    <td>MERN Stack</td>
+                    <td>DATA STRUCTURE</td>
                     <td>A+</td>
+                  </tr>
+                  <tr>
+                    <td>COMPUTER SYSTEM ORGANISATION</td>
+                    <td>A+</td>
+                  </tr>
+                  <tr>
+                    <td>ALGORITHMS</td>
+                    <td>B+</td>
                   </tr>
                 </tbody>
               </table>

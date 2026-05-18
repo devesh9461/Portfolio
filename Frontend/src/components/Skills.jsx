@@ -12,8 +12,8 @@ const Skills = () => {
       icon: <Code size={20} />,
       simple: "Everything you see and interact with on a website—the layout, buttons, colors, and animations. It's the face of the application.",
       skills: [
-        { name: "React.js", level: 90 },
-        { name: "TypeScript", level: 85 },
+        { name: "React.js", level: 60 },
+        { name: "JavaScript", level: 75 },
         { name: "HTML5/CSS3", level: 95 },
         { name: "Tailwind CSS", level: 90 },
       ]
@@ -25,9 +25,9 @@ const Skills = () => {
       simple: "The 'brain' behind the scenes that handles the logic, users, and security. It makes sure everything works smoothly under the hood.",
       skills: [
         { name: "Node.js", level: 80 },
-        { name: "Express", level: 85 },
-        { name: "Python", level: 75 },
-        { name: "RESTful APIs", level: 90 },
+        { name: "Express", level: 55 },
+        { name: "Python", level: 85 },
+        { name: "FastAPIs", level: 65 },
       ]
     },
     {
@@ -36,8 +36,8 @@ const Skills = () => {
       icon: <Database size={20} />,
       simple: "The digital warehouse (Databases) where info is stored, and the tools (Git, Docker) used to build and ship the code reliably.",
       skills: [
-        { name: "MongoDB", level: 80 },
-        { name: "PostgreSQL", level: 75 },
+        { name: "MySQL", level: 75 },
+        { name: "MongoDB", level: 55 },
         { name: "Git & GitHub", level: 90 },
         { name: "Docker", level: 65 },
       ]
@@ -82,7 +82,7 @@ const Skills = () => {
                 className="understand-btn"
                 onClick={() => toggleExplanation(category.id)}
               >
-                Let's Understand in Simple Words
+                Understand in Simple Words
               </button>
 
               <div className="skill-list">

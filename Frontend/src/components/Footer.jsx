@@ -11,10 +11,10 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="footer-col brand-col">
             <div className="footer-logo">
-              Devesh<span className="text-gradient-accent">.dev</span>
+              Creating<span className="text-gradient-accent"> .Something New</span>
             </div>
             <p className="footer-tagline">
-              Crafting intelligent digital experiences with precision and passion. 
+              Able to Crafting intelligent digital experiences with precision and passion. 
               Inspired by India's tech revolution.
             </p>
             <div className="footer-socials">
@@ -47,8 +47,6 @@ const Footer = () => {
             <ul className="footer-links">
               <li><a href="#" className="flex items-center gap-1">Resume <ExternalLink size={12} /></a></li>
               <li><a href="#">Latest Blogs</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
             </ul>
           </div>
 
@@ -58,7 +56,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <Mail size={16} className="contact-icon" />
-                <span>contact@devesh.dev</span>
+                <span>devesh11e@gmail.com</span>
               </li>
               <li>
                 <MapPin size={16} className="contact-icon" />
@@ -72,7 +70,7 @@ const Footer = () => {
           <div className="footer-divider"></div>
           <div className="footer-bottom-flex">
             <p className="copyright">&copy; {new Date().getFullYear()} Devesh Jangid. All rights reserved.</p>
-            <p className="footer-built">Inspired by Bharat's AI Ethos</p>
+            <p className="footer-built">Learning. Building. Improving.</p>
           </div>
         </div>
       </div>

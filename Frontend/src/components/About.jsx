@@ -3,8 +3,8 @@ import './About.css';
 
 const About = () => {
   const aboutHighlights = [
-    'Backend-first mindset with strong Python and API development foundations.',
-    'Full-stack execution using React, Node.js, and MongoDB for practical products.',
+    'Backend-first mindset with Intermediate Python and API development foundations.',
+    'Full-stack execution using React, Node.js, and MySQL/MongoDB for practical products.',
     'Focused on clean code, collaboration, and shipping reliable user experiences.',
   ];
 
@@ -21,12 +21,12 @@ const About = () => {
             <span className="about-note-label">From my notebook</span>
             <h3 className="about-note-title">Designing with intention. Building with consistency.</h3>
             <p className="about-note-copy">
-              I am Devesh, a software engineer focused on backend systems and modern web development.
+              I am Devesh, a Python Developer focused on backend systems and modern web development.
               I enjoy solving real-world problems with practical architecture and clear communication.
             </p>
             <p className="about-note-copy">
-              My approach is simple: understand the user need, build cleanly, and deliver work that teams
-              can confidently maintain.
+              My approach is simple: understand the user need, build cleanly, and deliver work that Users
+              can confidently Use without any Problem.
             </p>
 
             <ul className="about-highlights">

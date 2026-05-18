@@ -5,15 +5,15 @@ import { Award, ExternalLink } from 'lucide-react';
 const Certifications = () => {
   const certs = [
     {
-      title: "Python Backend Specialist",
-      issuer: "Coursera / DeepLearning.AI",
-      about: "Advanced certification in building scalable Python backend systems and APIs.",
+      title: "Python Essential 1",
+      issuer: "Cisco Networking Academy",
+      about: "Essential certification in building Python Core and Fundamentals",
       link: "#"
     },
     {
-      title: "MERN Stack Developer",
-      issuer: "Udemy / Full Stack Academy",
-      about: "Comprehensive certification covering React, Node.js, Express, and MongoDB.",
+      title: "JavaScript Essentials 1",
+      issuer: "Cisco Networking Academy",
+      about: "Essential certification in Building Logic or Core Fundamentals of JS",
       link: "#"
     },
     {

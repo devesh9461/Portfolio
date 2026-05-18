@@ -7,10 +7,10 @@ const Projects = () => {
   const projectsList = [
     {
       id: 1,
-      title: 'AI Code Assistant',
+      title: 'Client Lead Management System (Mini CRM)',
       description: 'A VS Code extension that uses OpenAI models to suggest code completions and refactoring in real-time.',
       image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
-      tags: ['React', 'TypeScript', 'Node.js', 'OpenAI'],
+      tags: ['HTML / CSS / JavaScript', 'Node.js', 'MySQL'],
       github: '#',
       live: '#'
     },
