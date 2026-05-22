@@ -2,32 +2,44 @@ import React from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import './Education.css';
 
-const Education = () => {
-  const educationData = [
+const fallbackEducation = {
+  journeyLabel: 'My Journey',
+  title: 'Education',
+  highlightedText: 'Qualification',
+  items: [
     {
-      degree: "Polytechnic Diploma in Computer Science",
-      institution: "Dr. RadhaKrishnan Polytechnic College (DRPC Jaipur)",
-      duration: "2024 - 2027",
-      isCurrent: true,
-      location: "Jaipur, Rajasthan",
-      description: "Focused on core computer science subjects like Data Structures, Algorithms, DBMS, Web Development, Computer network, and Software Engineering etc. Maintained a consistent academic record - 9.87/10.00 CGPA."
+      degree: 'Polytechnic Diploma in Computer Science',
+      institution: 'Dr. RadhaKrishnan Polytechnic College (DRPC Jaipur)',
+      duration: '2024 - 2027',
+      status: 'pursuing',
+      location: 'Jaipur, Rajasthan',
+      description:
+        'Focused on core computer science subjects like Data Structures, Algorithms, DBMS, Web Development, Computer Networks, and Software Engineering. Maintained a consistent academic record with 9.87/10.00 CGPA.',
     },
     {
-      degree: "RBSE Secondary Education (X)",
-      institution: "Pink City International Sr. Sec. School Hingonia",
-      duration: "2023 - 2024",
-      isCompleted: true,
-      location: "Jaipur, Rajasthan",
-      description: "Completed with a focus on Science and Mathematics. Participated in various co-curricular activities & Score 83% Marks overall."
-    }
-  ];
+      degree: 'RBSE Secondary Education (X)',
+      institution: 'Pink City International Sr. Sec. School Hingonia',
+      duration: '2023 - 2024',
+      status: 'completed',
+      location: 'Jaipur, Rajasthan',
+      description:
+        'Completed with a focus on Science and Mathematics. Participated in co-curricular activities and scored 83 percent overall.',
+    },
+  ],
+};
+
+const Education = ({ content }) => {
+  const sectionContent = content || fallbackEducation;
+  const educationData = sectionContent.items || fallbackEducation.items;
 
   return (
     <section id="education" className="education-section section">
       <div className="container">
         <div className="section-header text-center">
-          <span className="section-subtitle">My Journey</span>
-          <h2 className="section-title">Education <span className="text-gradient-accent">Qualification</span></h2>
+          <span className="section-subtitle">{sectionContent.journeyLabel}</span>
+          <h2 className="section-title">
+            {sectionContent.title} <span className="text-gradient-accent">{sectionContent.highlightedText}</span>
+          </h2>
         </div>
 
         <div className="education-timeline">
@@ -47,12 +59,12 @@ const Education = () => {
                   </div>
                 </div>
                 <div className="edu-institution-row">
-                  {(edu.isCurrent || edu.isCompleted) && (
-                    <span className={`edu-current-status ${edu.isCompleted ? 'edu-status-completed' : ''}`}>
-                      <span className={`edu-status-dot ${edu.isCompleted ? 'edu-status-dot-completed' : ''}`} aria-hidden="true"></span>
-                      {edu.isCompleted ? 'Completed' : 'Pursuing'}
+                  {edu.status ? (
+                    <span className={`edu-current-status ${edu.status === 'completed' ? 'edu-status-completed' : ''}`}>
+                      <span className={`edu-status-dot ${edu.status === 'completed' ? 'edu-status-dot-completed' : ''}`} aria-hidden="true"></span>
+                      {edu.status === 'completed' ? 'Completed' : 'Pursuing'}
                     </span>
-                  )}
+                  ) : null}
                   <h4 className="edu-institution">{edu.institution}</h4>
                 </div>
                 <p className="edu-location">

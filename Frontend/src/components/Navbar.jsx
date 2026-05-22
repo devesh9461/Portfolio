@@ -3,7 +3,16 @@ import { Menu, X, Mail, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './Navbar.css';
 
-const Navbar = () => {
+const defaultNavLinks = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Tech Stack', href: '#tech-stack' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
+];
+
+const Navbar = ({ content }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -15,19 +24,23 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Tech Stack', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  const navLinks = content?.navLinks || defaultNavLinks;
+  const logoText = content?.logoText || 'Devesh Jangid';
+  const socialLinks = content?.socialLinks || {};
+  const assistantLabelDesktop = content?.assistantLabelDesktop || 'AI ASSISTANT';
+  const assistantLabelMobile = content?.assistantLabelMobile || 'Talk to AI Assistant';
+  const assistantPromptDesktop =
+    content?.assistantPromptDesktop || 'System ready. Awaiting input.';
+  const assistantPromptMobile =
+    content?.assistantPromptMobile || 'Hello! I am exploring your portfolio.';
+  const contactEmail = socialLinks.email || 'contact@example.com';
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <a href="#" className="logo animated-logo">
-          Devesh Jangid<span></span>
+          {logoText}
+          <span></span>
         </a>
 
 
@@ -44,17 +57,29 @@ const Navbar = () => {
         <div className="nav-right desktop-only">
           <div className="nav-divider"></div>
           <div className="social-links">
-            <a href="https://github.com/deveshjangid" target="_blank" rel="noreferrer" aria-label="GitHub Repository"><FaGithub size={16} /></a>
-            <a href="https://linkedin.com/in/devesh-jangid" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile"><FaLinkedin size={16} /></a>
+            {socialLinks.github ? (
+              <a href={socialLinks.github} target="_blank" rel="noreferrer" aria-label="GitHub Repository">
+                <FaGithub size={16} />
+              </a>
+            ) : null}
+            {socialLinks.linkedin ? (
+              <a href={socialLinks.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Profile">
+                <FaLinkedin size={16} />
+              </a>
+            ) : null}
           </div>
 
           <button
             className="ai-nav-btn"
             aria-label="Launch AI Assistant"
-            onClick={() => window.dispatchEvent(new CustomEvent('open-chatbot', { detail: 'System ready. Awaiting input.' }))}
+            onClick={() =>
+              window.dispatchEvent(
+                new CustomEvent('open-chatbot', { detail: assistantPromptDesktop })
+              )
+            }
           >
             <Sparkles size={12} />
-            <span>AI ASSISTANT</span>
+            <span>{assistantLabelDesktop}</span>
           </button>
         </div>
 
@@ -82,20 +107,30 @@ const Navbar = () => {
             </a>
           ))}
           <div className="mobile-socials">
-            <a href="https://github.com/deveshjangid" target="_blank" rel="noreferrer"><FaGithub size={22} /></a>
-            <a href="https://linkedin.com/in/devesh-jangid" target="_blank" rel="noreferrer"><FaLinkedin size={22} /></a>
-            <a href="mailto:contact@example.com"><Mail size={22} /></a>
+            {socialLinks.github ? (
+              <a href={socialLinks.github} target="_blank" rel="noreferrer">
+                <FaGithub size={22} />
+              </a>
+            ) : null}
+            {socialLinks.linkedin ? (
+              <a href={socialLinks.linkedin} target="_blank" rel="noreferrer">
+                <FaLinkedin size={22} />
+              </a>
+            ) : null}
+            <a href={`mailto:${contactEmail}`}>
+              <Mail size={22} />
+            </a>
           </div>
 
           <button
             className="ai-nav-btn mobile-ai-btn"
             onClick={() => {
               setMobileMenuOpen(false);
-              window.dispatchEvent(new CustomEvent('open-chatbot', { detail: 'Hello! I am exploring your portfolio.' }));
+              window.dispatchEvent(new CustomEvent('open-chatbot', { detail: assistantPromptMobile }));
             }}
           >
             <Sparkles size={16} />
-            Talk to AI Assistant
+            {assistantLabelMobile}
           </button>
         </div>
       )}
