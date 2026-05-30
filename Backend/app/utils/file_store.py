@@ -5,7 +5,6 @@ from app.config import DATA_DIR
 
 CONTACTS_FILE = DATA_DIR / "contactSubmissions.json"
 PROJECTS_FILE = DATA_DIR / "projects.json"
-CONTENT_FILE = DATA_DIR / "portfolioContent.json"
 
 async def read_json(file_path: Path, fallback_value = None):
     """

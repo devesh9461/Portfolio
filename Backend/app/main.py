@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.config import ALLOWED_ORIGINS
-from app.routers import health, contact, content, projects
+from app.routers import health, contact, projects
 
 app = FastAPI(
     title="Portfolio Backend",
@@ -30,14 +30,13 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, prefix="/api/health", tags=["Health"])
 app.include_router(contact.router, prefix="/api/contact", tags=["Contact"])
-app.include_router(content.router, prefix="/api/content", tags=["Content"])
 app.include_router(projects.router, prefix="/api/projects", tags=["Projects"])
 
 @app.get("/")
 async def root():
     return {
         "message": "Portfolio backend is running.",
-        "endpoints": ["/api/health", "/api/contact", "/api/content", "/api/projects"]
+        "endpoints": ["/api/health", "/api/contact", "/api/projects"]
     }
 
 # Exception handler for Pydantic validation errors (matches legacy Express responses)
