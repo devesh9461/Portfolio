@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
+import CommandPalette from './components/CommandPalette';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -44,6 +45,7 @@ function App() {
   return (
     <>
       <Navbar content={content.navbar} />
+      <CommandPalette content={content} />
       <main>
         <Hero content={content.hero} />
         <TechStack content={content.techStack} />

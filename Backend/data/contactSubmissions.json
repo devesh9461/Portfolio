@@ -1,0 +1,26 @@
+[
+  {
+    "id": "75fe4ec9-30f2-41a2-afac-254a514789b2",
+    "name": "Devesh Jangid",
+    "email": "devesh11e@gmail.com",
+    "subject": "Project Collaboration Proposal",
+    "message": "Hey Devesh! I saw your work and I have an idea for a project that blends AI with Python. Let us build something cool together.",
+    "createdAt": "2026-05-24T03:10:16.311971Z"
+  },
+  {
+    "id": "f916f989-cbf6-4a2c-b768-1fdbeeb99f3d",
+    "name": "Devesh Jangid",
+    "email": "devesh11e@gmail.com",
+    "subject": "AI Integration Inquiry",
+    "message": "Hello, I would love to talk about AI integration opportunities!",
+    "createdAt": "2026-05-22T11:13:00.496630Z"
+  },
+  {
+    "id": "fb6b8e63-c2d9-43ec-a8b7-08332188cdd2",
+    "name": "Devesh Jangid",
+    "email": "devesh11e@gmail.com",
+    "subject": "Project Collaboration Proposal",
+    "message": "Hey Devesh! I saw your work and I have an idea for a project that blends AI with Python. Let us build something cool together.",
+    "createdAt": "2026-05-22T02:04:36.111Z"
+  }
+]

@@ -54,15 +54,15 @@
 .contact-grid {
   display: grid;
   grid-template-columns: 380px 1fr;
-  gap: 5rem; /* Massive gap for elite whitespace */
+  gap: 4rem;
   align-items: start;
-  margin-top: 6rem; /* Huge breathing room after header */
+  margin-top: 5rem;
 }
 
 .intelligence-panel {
   display: flex;
   flex-direction: column;
-  gap: 3rem; /* Organic, spacious vertical flow */
+  gap: 3rem;
 }
 
 .glass-card {
@@ -70,7 +70,7 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid #eeeeee;
-  border-radius: 1.5rem;
+  border-radius: 8px;
   padding: 2.5rem;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -85,7 +85,7 @@
   left: -150%;
   width: 300%;
   height: 300%;
-  background: linear-gradient(45deg, transparent, rgba(255, 153, 51, 0.03), transparent);
+  background: linear-gradient(45deg, transparent, rgba(0, 0, 0, 0.04), transparent);
   transform: rotate(45deg);
   transition: all 0.6s ease;
   pointer-events: none;
@@ -161,7 +161,7 @@
   padding: 1.25rem;
   background: #f9f9f9;
   border: 1px solid #eeeeee;
-  border-radius: 1rem;
+  border-radius: 8px;
   color: var(--text-primary);
   font-size: 0.9rem;
   font-weight: 600;
@@ -173,6 +173,17 @@
 .template-btn svg {
   color: #000000;
   opacity: 0.8;
+}
+
+.template-btn span {
+  font-weight: 800;
+}
+
+.template-btn small {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .template-btn:hover {
@@ -188,12 +199,19 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+.template-btn.active small,
+.template-btn.active svg {
+  color: currentColor;
+  opacity: 0.72;
+}
+
 .collab-form input, 
-.collab-form textarea {
+.collab-form textarea,
+.collab-form select {
   width: 100%;
   background: #ffffff;
   border: 1px solid #eeeeee;
-  border-radius: 0.75rem;
+  border-radius: 8px;
   padding: 1.1rem 1.5rem;
   color: var(--text-primary);
   font-family: inherit;
@@ -202,11 +220,68 @@
 }
 
 .collab-form input:focus, 
-.collab-form textarea:focus {
+.collab-form textarea:focus,
+.collab-form select:focus {
   outline: none;
   border-color: #000000;
   background: #ffffff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.collab-form select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #000000 50%),
+    linear-gradient(135deg, #000000 50%, transparent 50%);
+  background-position: calc(100% - 18px) 52%, calc(100% - 13px) 52%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.predictive-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background: #fbfbfb;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.predictive-fields.active {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+}
+
+.predictive-field {
+  position: relative;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.predictive-field.is-priority {
+  transform: translateY(-2px);
+}
+
+.predictive-field.is-priority::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -7px 0;
+  height: 2px;
+  background: #000000;
+  transform-origin: left;
+  animation: predictive-trace 420ms steps(12, end) both;
+}
+
+.predictive-field.is-priority input,
+.predictive-field.is-priority select {
+  border-color: #000000;
+  box-shadow: inset 0 0 0 1px #000000;
 }
 
 .submit-btn-glow {
@@ -215,12 +290,21 @@
   background: #000000;
   color: #ffffff;
   border: none;
-  border-radius: 1rem;
+  border-radius: 8px;
   font-weight: 800;
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes predictive-trace {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .submit-btn-glow:hover {
@@ -268,6 +352,10 @@
 
 @media (max-width: 768px) {
   .intelligence-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .predictive-fields {
     grid-template-columns: 1fr;
   }
 }

@@ -59,8 +59,8 @@ export const defaultPortfolioContent = {
     ],
   },
   techStack: {
-    title: 'Skilled or',
-    highlightedText: 'Knowledge',
+    title: 'Systems',
+    highlightedText: 'Telemetry',
     items: [
       {
         name: 'Node.js',
@@ -128,46 +128,46 @@ export const defaultPortfolioContent = {
   },
   skills: {
     title: 'Technical',
-    highlightedText: 'Skills',
-    subtitle: 'Technologies and tools I work with',
+    highlightedText: 'Telemetry',
+    subtitle: 'Competence mapped through systems, signals, and shipped execution.',
     categories: [
       {
-        id: 'frontend',
-        title: 'Frontend Development',
-        iconKey: 'code',
-        simple:
-          'Everything you see and interact with on a website: layout, buttons, colors, and animations. It is the face of the application.',
-        skills: [
-          { name: 'React.js', level: 60 },
-          { name: 'JavaScript', level: 75 },
-          { name: 'HTML5/CSS3', level: 95 },
-          { name: 'Tailwind CSS', level: 90 },
-        ],
-      },
-      {
-        id: 'backend',
-        title: 'Backend Development',
+        id: 'backend-systems',
+        title: 'Backend Systems',
         iconKey: 'server',
-        simple:
-          'The brain behind the scenes that handles logic, users, and security. It keeps everything stable under the hood.',
-        skills: [
-          { name: 'Node.js', level: 80 },
-          { name: 'Express', level: 55 },
-          { name: 'Python', level: 85 },
-          { name: 'FastAPI', level: 65 },
+        summary: 'API contracts, validation paths, and service boundaries built for predictable behavior.',
+        labels: ['[Backend Architecture]', '[API Contracts]', '[Asynchronous Systems]'],
+        systems: ['Python', 'FastAPI', 'Node.js', 'Express', 'Validation'],
+        telemetry: [
+          { label: 'API Surface', value: 'Contract-first', signal: 88, trend: [45, 62, 58, 74, 86, 78] },
+          { label: 'Runtime Logic', value: 'Python + Node', signal: 82, trend: [38, 54, 68, 64, 78, 84] },
+          { label: 'Failure Paths', value: 'Guarded', signal: 76, trend: [28, 46, 50, 64, 70, 76] },
         ],
       },
       {
-        id: 'tools',
-        title: 'Database and Tools',
+        id: 'data-automation',
+        title: 'Data and Automation',
         iconKey: 'database',
-        simple:
-          'Databases store application data, and tools like Git and Docker help build and ship software reliably.',
-        skills: [
-          { name: 'MySQL', level: 75 },
-          { name: 'MongoDB', level: 55 },
-          { name: 'Git and GitHub', level: 90 },
-          { name: 'Docker', level: 65 },
+        summary: 'Persistence, schema thinking, and repeatable workflows for practical product systems.',
+        labels: ['[Data Pipelines]', '[Persistence]', '[Operational Tooling]'],
+        systems: ['MySQL', 'MongoDB', 'GitHub', 'Docker', 'JSON APIs'],
+        telemetry: [
+          { label: 'Storage Layer', value: 'SQL + Document', signal: 80, trend: [42, 48, 61, 67, 73, 80] },
+          { label: 'Data Flow', value: 'Traceable', signal: 72, trend: [30, 46, 49, 56, 68, 72] },
+          { label: 'Ship Loop', value: 'Versioned', signal: 84, trend: [52, 58, 63, 76, 82, 84] },
+        ],
+      },
+      {
+        id: 'interface-systems',
+        title: 'Interface Systems',
+        iconKey: 'code',
+        summary: 'React interfaces with fast feedback, clean state, and recruiter-friendly interaction design.',
+        labels: ['[Frontend Architecture]', '[Command Interfaces]', '[Micro-Interactions]'],
+        systems: ['React', 'JavaScript', 'CSS', 'Tailwind CSS', 'Accessibility'],
+        telemetry: [
+          { label: 'Interaction Loop', value: 'Low latency', signal: 86, trend: [40, 50, 66, 72, 79, 86] },
+          { label: 'UI Systems', value: 'Composable', signal: 78, trend: [34, 44, 59, 65, 72, 78] },
+          { label: 'Markup Quality', value: 'Semantic', signal: 90, trend: [55, 62, 70, 81, 86, 90] },
         ],
       },
     ],
@@ -199,15 +199,16 @@ export const defaultPortfolioContent = {
   },
   projectsSection: {
     title: 'Featured',
-    highlightedText: 'Projects',
-    subtitle: 'A selection of my recent work',
+    highlightedText: 'Systems',
+    subtitle: 'Engineering modules with clear data flow, interaction loops, and implementation constraints.',
   },
   projects: [
     {
       id: 'project-mini-crm',
       title: 'Client Lead Management System (Mini CRM)',
+      module: 'Lead Ops Module',
       description:
-        'A complete lead management app for tracking inbound prospects, follow-ups, and sales pipeline activity.',
+        'A lead-ops system for inbound prospects, follow-up queues, and pipeline state with a practical Node and MySQL backend.',
       image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop',
       tags: ['HTML / CSS / JavaScript', 'Node.js', 'MySQL'],
       github: '#',
@@ -217,8 +218,9 @@ export const defaultPortfolioContent = {
     {
       id: 'project-ecommerce-platform',
       title: 'E-Commerce Platform',
+      module: 'Commerce Runtime',
       description:
-        'A full-stack modern e-commerce solution with Stripe integration, headless CMS, and responsive design.',
+        'A commerce runtime focused on product browsing, checkout flow, content operations, and responsive execution.',
       image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop',
       tags: ['Next.js', 'Tailwind', 'Stripe', 'Sanity'],
       github: '#',
@@ -228,8 +230,9 @@ export const defaultPortfolioContent = {
     {
       id: 'project-financial-dashboard',
       title: 'Financial Dashboard',
+      module: 'Telemetry Surface',
       description:
-        'Real-time financial data visualization dashboard with customizable widgets and dark mode support.',
+        'A dense dashboard surface for scanning financial signals, widget state, and real-time decision support.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
       tags: ['Vue.js', 'D3.js', 'Firebase'],
       github: '#',
@@ -273,11 +276,17 @@ export const defaultPortfolioContent = {
     templates: [
       {
         id: 'hr',
-        label: 'I am hiring (HR/Recruiter)',
+        label: 'I am hiring',
         iconKey: 'userCheck',
         subject: 'Opportunity: Python Developer / Junior Role',
         message:
-          'Hi Devesh, I am reaching out from [Company Name] because we are impressed with your knowledge. We would love to discuss a potential role in our team.',
+          'Hi Devesh, I am reaching out from [Company Name] because we are impressed with your backend and full-stack work. We would love to discuss a potential role in our team.',
+        intentSummary: 'Prioritizes start date, role type, and hiring timeline.',
+        priorityFields: ['startDate', 'contractType', 'decisionWindow'],
+        metadataDefaults: {
+          contractType: 'Internship',
+          decisionWindow: '2 weeks',
+        },
       },
       {
         id: 'collab',
@@ -285,7 +294,13 @@ export const defaultPortfolioContent = {
         iconKey: 'messageSquare',
         subject: 'Project Collaboration Proposal',
         message:
-          'Hey Devesh! I saw your work and I have an idea for a project that blends AI with Python. Let us build something cool together.',
+          'Hey Devesh! I saw your work and I have an idea for a project that blends AI, backend systems, and product execution. Let us build something useful together.',
+        intentSummary: 'Prioritizes project scope and collaboration structure.',
+        priorityFields: ['projectScope', 'contractType'],
+        metadataDefaults: {
+          contractType: 'Remote project',
+          projectScope: 'AI integration',
+        },
       },
     ],
   },

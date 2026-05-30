@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Mail, Sparkles } from 'lucide-react';
+import { Command, Menu, X, Mail, Search, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './Navbar.css';
 
@@ -34,6 +34,9 @@ const Navbar = ({ content }) => {
   const assistantPromptMobile =
     content?.assistantPromptMobile || 'Hello! I am exploring your portfolio.';
   const contactEmail = socialLinks.email || 'contact@example.com';
+  const openCommandPalette = () => {
+    window.dispatchEvent(new CustomEvent('open-command-palette'));
+  };
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -43,18 +46,18 @@ const Navbar = ({ content }) => {
           <span></span>
         </a>
 
+        <button
+          type="button"
+          className="command-nav-btn desktop-only"
+          onClick={openCommandPalette}
+          aria-label="Open command palette"
+        >
+          <Search size={15} />
+          <span>Command</span>
+          <kbd>K</kbd>
+        </button>
 
-
-        {/* Desktop Nav */}
-        <div className="nav-links desktop-only">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link">
-              {link.name}
-            </a>
-          ))}
-        </div>
-
-        <div className="nav-right desktop-only">
+        <div className="nav-right active-interface-hub desktop-only">
           <div className="nav-divider"></div>
           <div className="social-links">
             {socialLinks.github ? (
@@ -106,6 +109,17 @@ const Navbar = ({ content }) => {
               {link.name}
             </a>
           ))}
+          <button
+            type="button"
+            className="mobile-command-btn"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openCommandPalette();
+            }}
+          >
+            <Command size={18} />
+            Command
+          </button>
           <div className="mobile-socials">
             {socialLinks.github ? (
               <a href={socialLinks.github} target="_blank" rel="noreferrer">

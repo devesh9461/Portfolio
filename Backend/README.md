@@ -1,81 +1,73 @@
-# Portfolio Backend (Node.js)
+# Portfolio Backend (Python FastAPI)
 
-This backend powers dynamic portfolio content and forms with local JSON persistence.
+This backend powers dynamic portfolio content, projects database, and contact forms with local JSON persistence, migrated from Express to Python FastAPI.
 
-## Setup
+## Tech Stack
+- **FastAPI**: Modern, fast web framework for building APIs with Python.
+- **Pydantic v2**: Data validation and settings management using python type annotations.
+- **Uvicorn**: Lightning-fast ASGI server implementation.
+- **Aiofiles**: Asynchronous file system access for non-blocking local JSON read/write operations.
+
+---
+
+## Local Setup
+
+### 1. Setup Virtual Environment
+Run the following commands in the `Backend` directory:
 
 ```bash
-cd Backend
-npm install
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+# On Windows (PowerShell):
+.venv\Scripts\Activate.ps1
+# On Windows (CMD):
+.venv\Scripts\activate.bat
+# On macOS/Linux:
+source .venv/bin/activate
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Create Environment File
+Make a copy of `.env.example` as `.env`:
+```bash
 copy .env.example .env
 ```
 
-## Run
+---
 
-Development:
+## Running the Server
 
-```bash
-npm run dev
-```
-
-Production:
+Start the development server with hot-reload enabled:
 
 ```bash
-npm start
+python -m uvicorn app.main:app --port 5000 --reload
 ```
 
-Default server URL: `http://localhost:5000`
+*   **API Base URL**: `http://localhost:5000`
+*   **Interactive Swagger Documentation**: `http://localhost:5000/docs`
+*   **ReDoc Alternative Documentation**: `http://localhost:5000/redoc`
 
-## Frontend Connection
-
-- Local frontend can call `/api/*` through Vite proxy.
-- For deployed frontend, set `VITE_API_BASE_URL` to your backend URL.
-- Backend CORS origins are controlled by `FRONTEND_URLS` (comma-separated).
+---
 
 ## API Endpoints
 
-- `GET /api/health`
-- `GET /api/content`
-- `PUT /api/content`
-- `GET /api/projects`
-- `POST /api/projects`
-- `GET /api/contact`
-- `POST /api/contact`
+- `GET /api/health` — Checks api health.
+- `GET /api/content` — Fetches portfolio website content merged with the projects list.
+- `PUT /api/content` — Updates dynamic portfolio settings.
+- `GET /api/projects` — Fetches the list of featured projects.
+- `POST /api/projects` — Appends a new project.
+- `GET /api/contact` — Retrieves form submissions.
+- `POST /api/contact` — Submits contact form data.
 
-## Dynamic Content Workflow
+---
 
-1. Update section text/config in `src/data/portfolioContent.json`, or call `PUT /api/content`.
-2. Add new projects through `POST /api/projects` (or edit `src/data/projects.json` directly).
-3. Frontend fetches `/api/content` and renders updated sections automatically.
+## Frontend Integration
 
-### `POST /api/projects` body
-
-```json
-{
-  "title": "My New Project",
-  "description": "What it does and why it matters",
-  "image": "https://example.com/project-cover.jpg",
-  "tags": ["React", "Node.js", "MongoDB"],
-  "github": "https://github.com/username/repo",
-  "live": "https://example.com",
-  "featured": true
-}
-```
-
-### `PUT /api/content` body
-
-Send any top-level sections you want to replace, for example:
-
-```json
-{
-  "hero": {
-    "title": "Backend Engineer Building Practical Products",
-    "highlightedText": "clean. reliable."
-  }
-}
-```
-
-## Notes
-
-- Data files are stored in `src/data`.
-- For production, replace JSON storage with a real database and add auth for write routes.
+*   Vite frontend proxies `/api/*` requests directly to `http://localhost:5000`.
+*   CORS headers are controlled via `FRONTEND_URLS` in `.env` (comma-separated).
