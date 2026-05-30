@@ -32,6 +32,16 @@ async def create_contact(payload: ContactInput):
         "createdAt": created_at
     }
     
+    # Include optional metadata fields only when provided
+    if payload.startDate:
+        submission["startDate"] = payload.startDate
+    if payload.contractType:
+        submission["contractType"] = payload.contractType
+    if payload.decisionWindow:
+        submission["decisionWindow"] = payload.decisionWindow
+    if payload.projectScope:
+        submission["projectScope"] = payload.projectScope
+    
     # Prepend to mimic unshift
     contacts.insert(0, submission)
     await write_json(CONTACTS_FILE, contacts)
