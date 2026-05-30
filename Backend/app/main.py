@@ -13,6 +13,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
+origins = [
+    "https://github.com/devesh9461.github.io",
+    "http://localhost:5173", # Vite dev server
+]
+
 # CORS setup
 app.add_middleware(
     CORSMiddleware,
